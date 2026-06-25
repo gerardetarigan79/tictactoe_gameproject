@@ -197,7 +197,7 @@ Application entry point that launches the login screen.
 3. Tic-Tac-Toe Game Board ![image alt](https://github.com/gerardetarigan79/tictactoe_gameproject/blob/main/screenshot/Screenshot%202026-06-25%20190259.png?raw=true)
 4. Statistics Page ![image alt](https://github.com/gerardetarigan79/tictactoe_gameproject/blob/main/screenshot/Screenshot%202026-06-25%20185648.png?raw=true)
 5. Top Scorers Leaderboard ![image alt](https://github.com/gerardetarigan79/tictactoe_gameproject/blob/main/screenshot/Screenshot%202026-06-25%20185709.png?raw=true)
-6. PostgreSQL Database Table ![image alt](https://github.com/gerardetarigan79/tictactoe_gameproject/blob/main/screenshot/Screenshot%202026-06-25%20190217.png?raw=true)
+6. PostgreSQL Database Table ![image alt](https://github.com/gerardetarigan79/tictactoe_gameproject/blob/main/screenshot/Screenshot%202026-06-25%20193126.png?raw=true)
 
 ---
 
