@@ -5,31 +5,53 @@ import java.util.List;
 public class PlayerService {
 
     public Player login(String username, String password) {
-        String sql = "SELECT * FROM players WHERE username=? AND password=?";
-        
-        try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, username);
-            stmt.setString(2, password);
+    try {
+        Connection conn =
+            DatabaseManager.getConnection();
 
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    return new Player(
-                        rs.getInt("id"),
-                        rs.getString("username"),
-                        rs.getInt("wins"),
-                        rs.getInt("losses"),
-                        rs.getInt("draws"),
-                        rs.getInt("score")
-                    );
-                }
-            }
-        } catch(Exception e) {
-            e.printStackTrace();
+        System.out.println("CONNECTED");
+
+        String sql =
+            "SELECT * FROM players " +
+            "WHERE username=? " +
+            "AND password=?";
+
+        PreparedStatement stmt =
+            conn.prepareStatement(sql);
+
+        stmt.setString(1, username);
+        stmt.setString(2, password);
+
+        System.out.println("Username entered: " + username);
+        System.out.println("Password entered: " + password);
+
+        ResultSet rs =
+            stmt.executeQuery();
+
+        if (rs.next()) {
+
+            System.out.println("PLAYER FOUND");
+
+            return new Player(
+                rs.getInt("id"),
+                rs.getString("username"),
+                rs.getInt("wins"),
+                rs.getInt("losses"),
+                rs.getInt("draws"),
+                rs.getInt("score")
+            );
         }
-        return null;
+
+        System.out.println("NO PLAYER FOUND");
+
+    } catch(Exception e) {
+
+        e.printStackTrace();
     }
+
+    return null;
+}
 
     public void recordWin(int playerId) {
         String sql = "UPDATE players SET wins = wins + 1, score = score + 10 WHERE id = ?";
